@@ -3,7 +3,7 @@
 {% block body %}
     <h2>Mamamia Pizzaria</h2>
     {% for pizza in pizzas %}
-        <li>{{ pizza }}</li>
+        <li>{{ pizza[0] }}</li>
     {% endfor %}
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -20,3 +20,4 @@
     </div>
     </div>
 {% endblock %}
+

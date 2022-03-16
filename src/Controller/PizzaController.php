@@ -13,7 +13,13 @@ class PizzaController extends AbstractController
 
     public function home(): Response
     {
-        $pizzas = ['salame', 'margarita'];
+        $categories = ["vlees", "vegetarisch", "vis"];
+        $pizzas = [
+            "vlees" => ['Salame', 'Hawaii'],
+            "vegetarisch" => ['margarita', 'Groente'],
+            "vis" => ['vis1', 'vis2']
+        ];
+
         return $this->render('pizza/home.html.twig', [
             'pizzas' => $pizzas
         ]);
