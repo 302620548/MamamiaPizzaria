@@ -2,8 +2,23 @@
 {% block title%} Producten {% endblock %}
 {% block body %}
     <h2>Mamamia Pizzaria</h2>
-    {% for pizza in pizzas %}
-        <li>{{ pizza }}</li>
-    {% endfor %}
+
+    <div class="container">
+        <div class="row gy-3">
+            {% for pizza in pizzas %}
+                <div class="col-12 col-md-4">
+                    <div class="card" style="width: 20rem;">
+                        <img class="card-img-top" src="" alt="Card image cap" style="height: 200px">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ pizza }}</h5>
+                            <p class="card-text">Hier zijn alle {{ pizza }} pizza's</p>
+                            <a href="/products/<{{ pizza }}" class="btn btn-primary">Bekijk de pizza's</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
 {% endblock %}
 

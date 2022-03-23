@@ -38,10 +38,23 @@ class PizzaController extends AbstractController
     }
 
     /**
-     * @Route("/contact}")
+     * @Route("/contact")
      */
     public function contact(): Response
     {
-        return $this->render('pizza/conact.html.twig');
+        return $this->render('pizza/contact.html.twig', [
+
+        ]);
     }
+
+    /**
+     * @Route("/about")
+     */
+    public function about(): Response
+    {
+        return $this->render('pizza/about.html.twig', [
+
+        ]);
+    }
+
 }
