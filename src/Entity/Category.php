@@ -25,17 +25,17 @@ class Category
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $description;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255)
      */
     private $picture;
 
     /**
-     * @ORM\OneToMany(targetEntity=Pizza::class, mappedBy="category_id")
+     * @ORM\Column(type="text")
+     */
+    private $description;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Pizza::class, mappedBy="cat")
      */
     private $pizzas;
 
@@ -61,26 +61,26 @@ class Category
         return $this;
     }
 
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
-
-    public function setDescription(?string $description): self
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
     public function getPicture(): ?string
     {
         return $this->picture;
     }
 
-    public function setPicture(?string $picture): self
+    public function setPicture(string $picture): self
     {
         $this->picture = $picture;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }
@@ -97,7 +97,7 @@ class Category
     {
         if (!$this->pizzas->contains($pizza)) {
             $this->pizzas[] = $pizza;
-            $pizza->setCategoryId($this);
+            $pizza->setCat($this);
         }
 
         return $this;
@@ -107,8 +107,8 @@ class Category
     {
         if ($this->pizzas->removeElement($pizza)) {
             // set the owning side to null (unless already changed)
-            if ($pizza->getCategoryId() === $this) {
-                $pizza->setCategoryId(null);
+            if ($pizza->getCat() === $this) {
+                $pizza->setCat(null);
             }
         }
 

@@ -1,6 +1,9 @@
 <?php
 namespace App\Controller;
 
+use App\Entity\Category;
+use App\Repository\CategoryRepository;
+use App\Repository\PizzaRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -11,9 +14,9 @@ class PizzaController extends AbstractController
      * @Route("/home")
      */
 
-    public function home(): Response
+    public function home(CategoryRepository $repository): Response
     {
-        $categories = ["vlees", "vegetarisch", "vis"];
+        $categories = $repository->findAll();
 
         return $this->render('pizza/home.html.twig', [
             'categories' => $categories
@@ -21,19 +24,25 @@ class PizzaController extends AbstractController
     }
 
     /**
-     * @Route("/products/{category}")
+     * @Route("/products/{id}")
      */
-    public function products($category): Response
+    public function products(Category $category, PizzaRepository $repository): Response
     {
-
-        $pizzas = [
-            "vlees" => ['Salame', 'Hawaii', 'Italia'],
-            "vegetarisch" => ['Margherita', 'Funghi', 'Vegetaria'],
-            "vis" => ['Salmone']
-        ];
+        $pizzas = $repository->findBy(["cat" => $category]);
 
         return $this->render('pizza/products.html.twig', [
-            'pizzas' => $pizzas[$category]
+            "category" => $category,
+            'pizzas' => $pizzas
+        ]);
+    }
+
+    /**
+     * @Route("/products/{id}")
+     */
+    public function order(): Response
+    {
+
+        return $this->render('pizza/order.html.twig', [
         ]);
     }
 
@@ -42,8 +51,8 @@ class PizzaController extends AbstractController
      */
     public function contact(): Response
     {
-        return $this->render('pizza/contact.html.twig', [
 
+        return $this->render('pizza/contact.html.twig', [
         ]);
     }
 
@@ -52,9 +61,8 @@ class PizzaController extends AbstractController
      */
     public function about(): Response
     {
-        return $this->render('pizza/about.html.twig', [
 
+        return $this->render('pizza/contact.html.twig', [
         ]);
     }
-
 }

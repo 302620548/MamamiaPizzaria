@@ -28,19 +28,15 @@ class Pizza
     private $picture;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text")
      */
     private $description;
 
     /**
      * @ORM\ManyToOne(targetEntity=category::class, inversedBy="pizzas")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $category_id;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=Order::class, inversedBy="pizza_id")
-     */
-    private $orders;
+    private $cat;
 
     public function getId(): ?int
     {
@@ -83,26 +79,14 @@ class Pizza
         return $this;
     }
 
-    public function getCategoryId(): ?category
+    public function getCat(): ?category
     {
-        return $this->category_id;
+        return $this->cat;
     }
 
-    public function setCategoryId(?category $category_id): self
+    public function setCat(?category $cat): self
     {
-        $this->category_id = $category_id;
-
-        return $this;
-    }
-
-    public function getOrders(): ?Order
-    {
-        return $this->orders;
-    }
-
-    public function setOrders(?Order $orders): self
-    {
-        $this->orders = $orders;
+        $this->cat = $cat;
 
         return $this;
     }

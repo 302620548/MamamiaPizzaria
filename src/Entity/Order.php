@@ -3,8 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\OrderRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -46,19 +44,14 @@ class Order
     private $zipcode;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255)
      */
     private $status;
 
     /**
-     * @ORM\OneToMany(targetEntity=pizza::class, mappedBy="orders")
+     * @ORM\ManyToOne(targetEntity=pizza::class)
      */
-    private $pizza_id;
-
-    public function __construct()
-    {
-        $this->pizza_id = new ArrayCollection();
-    }
+    private $pizza;
 
     public function getId(): ?int
     {
@@ -130,39 +123,21 @@ class Order
         return $this->status;
     }
 
-    public function setStatus(?string $status): self
+    public function setStatus(string $status): self
     {
         $this->status = $status;
 
         return $this;
     }
 
-    /**
-     * @return Collection<int, pizza>
-     */
-    public function getPizzaId(): Collection
+    public function getPizza(): ?pizza
     {
-        return $this->pizza_id;
+        return $this->pizza;
     }
 
-    public function addPizzaId(pizza $pizzaId): self
+    public function setPizza(?pizza $pizza): self
     {
-        if (!$this->pizza_id->contains($pizzaId)) {
-            $this->pizza_id[] = $pizzaId;
-            $pizzaId->setOrders($this);
-        }
-
-        return $this;
-    }
-
-    public function removePizzaId(pizza $pizzaId): self
-    {
-        if ($this->pizza_id->removeElement($pizzaId)) {
-            // set the owning side to null (unless already changed)
-            if ($pizzaId->getOrders() === $this) {
-                $pizzaId->setOrders(null);
-            }
-        }
+        $this->pizza = $pizza;
 
         return $this;
     }
