@@ -49,9 +49,14 @@ class Order
     private $status;
 
     /**
-     * @ORM\ManyToOne(targetEntity=pizza::class)
+     * @ORM\ManyToOne(targetEntity=Pizza::class)
      */
     private $pizza;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $size;
 
     public function getId(): ?int
     {
@@ -138,6 +143,18 @@ class Order
     public function setPizza(?pizza $pizza): self
     {
         $this->pizza = $pizza;
+
+        return $this;
+    }
+
+    public function getSize(): ?int
+    {
+        return $this->size;
+    }
+
+    public function setSize(int $size): self
+    {
+        $this->size = $size;
 
         return $this;
     }

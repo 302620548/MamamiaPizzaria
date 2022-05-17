@@ -33,7 +33,7 @@ class Pizza
     private $description;
 
     /**
-     * @ORM\ManyToOne(targetEntity=category::class, inversedBy="pizzas")
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="pizzas")
      * @ORM\JoinColumn(nullable=false)
      */
     private $cat;
@@ -79,12 +79,12 @@ class Pizza
         return $this;
     }
 
-    public function getCat(): ?category
+    public function getCat(): ?Category
     {
         return $this->cat;
     }
 
-    public function setCat(?category $cat): self
+    public function setCat(?Category $cat): self
     {
         $this->cat = $cat;
 
