@@ -90,7 +90,7 @@ class PizzaController extends AbstractController
             ->add('city')
             ->add('zipcode')
             ->add('size')
-            ->add('submit', SubmitType::class, ['label' => 'OrderPizza Pizza'])
+            ->add('submit', SubmitType::class, ['label' => 'Order'])
             ->getForm();
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -106,11 +106,11 @@ class PizzaController extends AbstractController
 
 
     /**
-     * @Route("/order/succes/",name="task_succes")
+     * @Route("/order/success/",name="task_succes")
      */
-    public function succes(): Response
+    public function success(): Response
     {
-        return $this->render('pizza/task_succes.html.twig');
+        return $this->render('pizza/task_success.html.twig');
 
     }
 }
