@@ -1,8 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="b9c8b78e-bf6c-4b6c-96a2-91c636c7ac65" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Templates/pizza/task_success.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/M&amp;M.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/chocco special.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/mandarijn-ham.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/nutella.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/salame.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/viss.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Templates/pizza/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/pizza/home.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Templates/pizza/products.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/pizza/products.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/1078503.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/1078503.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/pizza-vegetarisch.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/pizza-vegetarisch.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/pizza-vis.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/pizza-vis.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/pizza-vlees.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/pizza-vlees.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/PizzaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PizzaController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -102,7 +118,11 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/pizza_by_mama" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -121,6 +141,7 @@
       <updated>1652265500953</updated>
       <workItem from="1652265503134" duration="1585000" />
       <workItem from="1652786402759" duration="5695000" />
+      <workItem from="1652856561611" duration="2562000" />
     </task>
     <servers />
   </component>

@@ -7,7 +7,7 @@
             {% for category in categories %}
                 <div class="col-12 col-md-4">
                     <div class="card" style="width: 20rem;">
-                        <img class="card-img-top" src="images/pizza-{{ category.name }}.jpg" alt="Card image cap" style="height: 200px">
+                        <img class="card-img-top" src="{{ category.picture }}" alt="Card image cap" style="height: 200px">
                         <div class="card-body">
                             <h5 class="card-title">{{ category.name }}</h5>
                             <p class="card-text">Hier zijn alle {{ category.name }} pizza's</p>

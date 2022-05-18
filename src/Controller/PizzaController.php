@@ -12,6 +12,8 @@ use App\Repository\OrderRepository;
 use App\Repository\PizzaRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -84,12 +86,18 @@ class PizzaController extends AbstractController
         $order->setStatus("ordered");
 
         $form = $this->createFormBuilder($order)
-            ->add('fname')
+            ->add('fname', TextType::class, ['label' => 'Voornaam'])
             ->add('lname')
             ->add('address')
             ->add('city')
             ->add('zipcode')
-            ->add('size')
+            ->add('size', ChoiceType::class,[
+                'choices'=>[
+                    '20cm' => "20",
+                    '32cm' => "32",
+                    '36cm' => "36",
+                ],
+            ])
             ->add('submit', SubmitType::class, ['label' => 'Order'])
             ->getForm();
         $form->handleRequest($request);
